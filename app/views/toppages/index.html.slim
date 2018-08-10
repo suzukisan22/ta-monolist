@@ -4,7 +4,7 @@
       .cover-contents
         h1
           | 素敵なモノと出会う場所
-        a.btn.btn-success.btn-lg[href=""]
-          | モノリストを始める
+          - unless logged_in?
+            = link_to "モノリストを始める", signup_path, class: "btn btn-success btn-lg"
 p
   | テスト
