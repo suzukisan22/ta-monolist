@@ -1,0 +1,20 @@
+header
+  nav.navbar.navbar-default.navbar-static-top
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed[type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"]
+          span.sr-only
+            | Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to root_path, class: "navbar-left" do
+          = image_tag "logo.png", alt: "Monolist"
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a[href="#"]
+              | 新規登録
+          li
+            a[href="#"]
+              | ログイン
