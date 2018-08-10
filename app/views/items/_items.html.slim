@@ -1,0 +1,11 @@
+- if items
+  .row
+    - items.each do |item|
+      .item
+        .col-md-3.col-sm-4.col-xs-12
+          .panel.panel-default
+            .panel-heading.text-center
+              img src="#{item.image_url}" alt=""
+            .panel-body
+              p.item-title
+                = item.name

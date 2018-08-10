@@ -4,7 +4,7 @@
       .cover-contents
         h1
           | 素敵なモノと出会う場所
-          - unless logged_in?
-            = link_to "モノリストを始める", signup_path, class: "btn btn-success btn-lg"
+        - unless logged_in?
+          = link_to "モノリストを始める", signup_path, class: "btn btn-success btn-lg"
 p
   | テスト

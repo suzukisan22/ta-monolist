@@ -14,15 +14,16 @@ header
         ul.nav.navbar-nav.navbar-right
           - if logged_in?
             li
-              a href="#"
+              = link_to new_item_path do
                 span.glyphicon.glyphicon-plus aria-hidden="true"
+                | アイテムを追加
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                 span.gravatar
                   img.img-circle src="#{gravatar_url(current_user, size: 20)}" alt=""
                 = current_user.name
                 span.caret
-              ul.dropdonw-menu
+              ul.dropdown-menu
                 li
                   = link_to 'マイページ', user_path(current_user)
                 li.divider role="separator"
