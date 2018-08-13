@@ -24,10 +24,12 @@ header
               ul.dropdown-menu
                 li
                   = link_to "Wantランキング", rankings_want_path
+                li
+                  = link_to "Haveランキング", rankings_have_path
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                 span.gravatar
-                  img.img-circle src="#{gravatar_url(current_user, size: 20)}" alt=""
+                  = image_tag gravatar_url(current_user, size: 20), alt: "", class: "img-circle"
                 = current_user.name
                 span.caret
               ul.dropdown-menu
@@ -35,7 +37,7 @@ header
                   = link_to 'マイページ', user_path(current_user)
                 li.divider role="separator"
                 li
-                  = link_to "ログアウト", logout_path, medhot: :delete
+                  = link_to "ログアウト", logout_path, method: :delete
           - else
             li
               = link_to "新規登録", signup_path
