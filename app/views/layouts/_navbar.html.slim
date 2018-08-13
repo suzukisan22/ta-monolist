@@ -19,6 +19,13 @@ header
                 | アイテムを追加
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+                span.glyphicon.glyphicon-signal aria-hidden="true" ランキング
+                span.caret
+              ul.dropdown-menu
+                li
+                  = link_to "Wantランキング", rankings_want_path
+            li.dropdown
+              a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                 span.gravatar
                   img.img-circle src="#{gravatar_url(current_user, size: 20)}" alt=""
                 = current_user.name

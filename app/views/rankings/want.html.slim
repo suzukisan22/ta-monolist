@@ -1,0 +1,18 @@
+h1 Wantランキング
+- if @items.present?
+  .row
+    - @items.each_with_index do |item, index|
+      .item
+        .col-md-3.col-sm-4.col-xs-12
+          .panel.panel-default
+            .panel-heading.text-center
+              img src="#{item.image_url}" alt=""
+            .panel-body
+              p.item-title
+                = link_to item.name, item
+              .buttons.text-center
+                - if logged_in?
+                  = render 'ownerships/want_button', item: item
+            .panel-footer
+              p.text-center
+                = "#{index+1}位: #{@ranking_counts[item.id]} Wants"
