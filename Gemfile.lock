@@ -40,9 +40,14 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.4)
     bcrypt (3.1.12)
+    better_errors (2.4.0)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.2)
+    coderay (1.1.2)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -56,6 +61,7 @@ GEM
     dotenv-rails (2.5.0)
       dotenv (= 2.5.0)
       railties (>= 3.2, < 6.0)
+    erubi (1.7.1)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -90,6 +96,9 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
     puma (3.12.0)
     rack (2.0.5)
     rack-test (0.6.3)
@@ -177,6 +186,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  better_errors
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails
@@ -185,6 +195,7 @@ DEPENDENCIES
   jquery-rails
   listen (~> 3.0.5)
   mysql2 (>= 0.3.18, < 0.5)
+  pry
   puma (~> 3.0)
   rails (~> 5.0.6)
   rakuten_web_service (= 1.5.0)

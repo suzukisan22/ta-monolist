@@ -10,6 +10,7 @@
           .buttons.text-center
             - if logged_in?
               = render 'ownerships/want_button', item: @item
+              = render 'ownerships/have_button', item: @item
 
   .col-md-3.col-sm-6.col-xs-12
     .want-users
@@ -20,8 +21,9 @@
             = link_to user.name, user_path(user)
     .have-users
       .panel.panel-default
-        .panel-heading.text-center
-          | Haveしたユーザー
+        .panel-heading.text-center Haveしたユーザー
         .panel-body
+          - @have_users.each do |user|
+            = link_to user.name, user_path(user)
     .text-center
       = link_to '楽天詳細ページ', @item.url, target: '_blank'

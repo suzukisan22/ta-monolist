@@ -6,6 +6,4 @@
           | 素敵なモノと出会う場所
         - unless logged_in?
           = link_to "モノリストを始める", signup_path, class: "btn btn-success btn-lg"
-p
-  | テスト
 = render 'items/items', items: @items
