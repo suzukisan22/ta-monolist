@@ -1,0 +1,17 @@
+.row
+  - @items.each.with_index(1) do |item, index|
+    .item
+      .col-md-3.col-sm-4.col-xs-12
+        .panel.panel-default
+          .panel-heading.text-center
+            = image_tag item.image_url, alt: ""
+          .panel-body
+            p.item-title
+              = link_to item.name, item
+            .buttons.text-center
+              - if logged_in?
+                = render 'ownerships/want_button', item: item
+                = render 'ownerships/have_button', item: item
+          .panel-footer
+            p.text-center
+              = "#{index}位: #{@ranking_counts[item.id]} #{ownership}s"

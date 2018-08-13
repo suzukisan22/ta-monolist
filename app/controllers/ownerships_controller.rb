@@ -1,4 +1,7 @@
 class OwnershipsController < ApplicationController
+  before_action :require_user_logged_in
+  before_action :check_type_params
+
   def create
     @item = Item.find_or_initialize_by(code: params[:item_code])
 
@@ -9,29 +12,32 @@ class OwnershipsController < ApplicationController
       @item.save
     end
 
-    # want関係として保存
-    if params[:type] == 'Want'
-      current_user.want(@item)
-      flash[:success] = '商品をWantしました。'
-    elsif params[:type] == 'Have'
-      current_user.have(@item)
-      flash[:success] = '商品をHaveしました。'
-    end
+    create_ownership(params[:type])
 
     redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @item = Item.find(params[:item_id])
-
-    if params[:type] == 'Want'
-      current_user.unwant(@item)
-      flash[:success] = "商品のWantを解除しました。"
-    elsif params[:type] == 'Have'
-      current_user.unhave(@item)
-      flash[:success] = '商品のHaveを解除しました。'
-    end
-
+    destroy_ownership(params[:type])
     redirect_back(fallback_location: root_path)
+  end
+
+  private
+
+  def create_ownership(type)
+    current_user.send(type.downcase, @item)
+    flash[:success] = "商品の#{type}しました。"
+  end
+
+  def destroy_ownership(type)
+    current_user.send("un#{type.downcase}", @item)
+    flash[:success] = "商品の#{type}を解除しました。"
+  end
+
+  def check_type_params
+    unless Ownership::OWNERSHIP_OPTIONS.include?(params[:type])
+      redirect_back(fallback_location: root_path)
+    end
   end
 end
