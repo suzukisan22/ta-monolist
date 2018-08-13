@@ -24,7 +24,7 @@ header
               ul.dropdown-menu
                 - Ownership::OWNERSHIP_OPTIONS.each do |option|
                   li
-                    = link_to "#{option}ランキング", option.downcase
+                    = link_to "#{option}ランキング", "#{root_url}rankings/#{option.downcase}"
             li.dropdown
               a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
                 span.gravatar
