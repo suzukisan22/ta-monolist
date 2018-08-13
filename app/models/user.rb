@@ -39,5 +39,4 @@ class User < ApplicationRecord
   def have?(item)
     self.haves.exists?(item_id: item.id)
   end
-
 end
