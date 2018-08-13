@@ -1,0 +1,27 @@
+.row
+  .col-md-3.col-sm-6.col-xs-12.col-md-offset-3
+    .item
+      .panel.panel-default
+        .panel-heading.text-center
+          img src="#{@item.image_url}" alt=""
+        .panel-body
+          .item-title
+            = @item.name
+          .buttons.text-center
+            - if logged_in?
+              = render 'ownerships/want_button', item: @item
+
+  .col-md-3.col-sm-6.col-xs-12
+    .want-users
+      .panel.panel-default
+        .panel-heading.text-center Wantしたユーザー
+        .panel-body
+          - @want_users.each do |user|
+            = link_to user.name, user_path(user)
+    .have-users
+      .panel.panel-default
+        .panel-heading.text-center
+          | Haveしたユーザー
+        .panel-body
+    .text-center
+      = link_to '楽天詳細ページ', @item.url, target: '_blank'

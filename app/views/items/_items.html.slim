@@ -1,4 +1,4 @@
-- if items
+- if items.present?
   .row
     - items.each do |item|
       .item
@@ -7,5 +7,12 @@
             .panel-heading.text-center
               img src="#{item.image_url}" alt=""
             .panel-body
-              p.item-title
-                = item.name
+              - if item.persisted?
+                p.item-title
+                  = link_to item.name, item
+              - else
+                p.item-title
+                  = item.name
+              .buttons.text-center
+                - if logged_in?
+                  = render 'ownerships/want_button', item: item

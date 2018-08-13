@@ -4,3 +4,15 @@
   .name.text-center
     h1
       = @user.name
+  .status.text-center
+    ul
+      li
+        .status-label Want
+        #want_count.status-value
+          = @count_want
+      li
+        .status-label HAVE
+        #have_count.status-value
+          | XXX
+
+= render 'items/items', items: @items
